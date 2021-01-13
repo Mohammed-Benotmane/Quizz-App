@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzapp/answer.dart';
 import 'package:quizzapp/question.dart';
 
 void main() {
@@ -23,9 +24,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      "What\'s the color of the sun?",
-      "What\'s the currency of germany?",
-      "Who\'s the richest man in the world?",
+      {
+        'questionText': "What\'s the color of the sun?",
+        'answers': ['Yellow', 'Green', 'Red',"Blue"],
+      },
+      {
+        'questionText': "What\'s the currency of germany?",
+        'answers': ['Dinars', 'Euro', 'Dollars'],
+      },
+      {
+        'questionText': "Who\'s the richest man in the world?",
+        'answers': ['Elon Musk', 'Cristiano Ronaldo', 'Leonardo Dicaprio'],
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -35,10 +45,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(questions[_questionIndex]),
-            RaisedButton(onPressed: _answerQuestion, child: Text("answer 1")),
-            RaisedButton(onPressed: _answerQuestion, child: Text("answer 2")),
-            RaisedButton(onPressed: _answerQuestion, child: Text("answer 3")),
+            Question(questions[_questionIndex]['questionText']),
+            ...(questions[_questionIndex]['answers'] as List<String>).map((answer){
+              return Answer(_answerQuestion,answer);
+            }).toList()
           ],
         ),
       ),
