@@ -5,16 +5,17 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  void answerQuestion(){
-    questionIndex++;
+  void _answerQuestion() {
+    setState(() {
+      _questionIndex++;
+    });
     print("answer choosen");
   }
 
@@ -33,10 +34,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
-            RaisedButton(onPressed: answerQuestion,child: Text("answer 1")),
-            RaisedButton(onPressed: answerQuestion,child: Text("answer 2")),
-            RaisedButton(onPressed: answerQuestion,child: Text("answer 3 ")),
+            Text(questions[_questionIndex]),
+            RaisedButton(onPressed: _answerQuestion, child: Text("answer 1")),
+            RaisedButton(onPressed: _answerQuestion, child: Text("answer 2")),
+            RaisedButton(onPressed: _answerQuestion, child: Text("answer 3 ")),
           ],
         ),
       ),
