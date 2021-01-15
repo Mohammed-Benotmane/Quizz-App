@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
           centerTitle: true,
         ),
         body: _questionIndex < _questions.length
-            ? Quiz(_answerQuestion,_questions)
+            ? Quiz(answerQuestion: _answerQuestion,questionIndex: _questionIndex,questions: _questions)
             : Center(
                 child: Text("You did it!"),
               ),
