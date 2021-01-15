@@ -13,6 +13,20 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  final questions = const [
+    {
+      'questionText': "What\'s the color of the sun?",
+      'answers': ['Yellow', 'Green', 'Red', "Blue"],
+    },
+    {
+      'questionText': "What\'s the currency of germany?",
+      'answers': ['Dinars', 'Euro', 'Dollars'],
+    },
+    {
+      'questionText': "Who\'s the richest man in the world?",
+      'answers': ['Elon Musk', 'Cristiano Ronaldo', 'Leonardo Dicaprio'],
+    },
+  ];
 
   void _answerQuestion() {
     setState(() {
@@ -23,34 +37,25 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      {
-        'questionText': "What\'s the color of the sun?",
-        'answers': ['Yellow', 'Green', 'Red',"Blue"],
-      },
-      {
-        'questionText': "What\'s the currency of germany?",
-        'answers': ['Dinars', 'Euro', 'Dollars'],
-      },
-      {
-        'questionText': "Who\'s the richest man in the world?",
-        'answers': ['Elon Musk', 'Cristiano Ronaldo', 'Leonardo Dicaprio'],
-      },
-    ];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text("Quiz App"),
           centerTitle: true,
         ),
-        body: Column(
-          children: [
-            Question(questions[_questionIndex]['questionText']),
-            ...(questions[_questionIndex]['answers'] as List<String>).map((answer){
-              return Answer(_answerQuestion,answer);
-            }).toList()
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: [
+                  Question(questions[_questionIndex]['questionText']),
+                  ...(questions[_questionIndex]['answers'] as List<String>).map((answer) {
+                    return Answer(_answerQuestion, answer);
+                  }).toList()
+                ],
+              )
+            : Center(
+                child: Text("You did it!"),
+              ),
       ),
     );
   }
