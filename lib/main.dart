@@ -18,15 +18,20 @@ class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
       'questionText': "What\'s the color of the sun?",
-      'answers': ['Yellow', 'Green', 'Red', "Blue"],
+      'answers': [
+        {'text': 'Yellow', 'score': 1},
+        {'text': 'Green', 'score': 0},
+        {'text': 'Red', 'score': 0},
+        {'text': 'Blue', 'score': 0}
+      ],
     },
     {
       'questionText': "What\'s the currency of germany?",
-      'answers': ['Dinars', 'Euro', 'Dollars'],
+      'answers': [{'text': 'Dinars', 'score': 0}, {'text': 'Euros', 'score': 1}, {'text': 'Dollars', 'score': 0}],
     },
     {
       'questionText': "Who\'s the richest man in the world?",
-      'answers': ['Elon Musk', 'Cristiano Ronaldo', 'Leonardo Dicaprio'],
+      'answers': [{'text': 'Elon Musk', 'score': 1}, {'text': 'Cristiano Ronaldo', 'score':0}, {'text': 'Leonardo Dicaprio', 'score':0}],
     },
   ];
 
