@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizzapp/answer.dart';
 import 'package:quizzapp/question.dart';
+import 'package:quizzapp/quiz.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
-  final questions = const [
+  final _questions = const [
     {
       'questionText': "What\'s the color of the sun?",
       'answers': ['Yellow', 'Green', 'Red', "Blue"],
@@ -44,15 +45,8 @@ class _MyAppState extends State<MyApp> {
           title: Text("Quiz App"),
           centerTitle: true,
         ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(questions[_questionIndex]['questionText']),
-                  ...(questions[_questionIndex]['answers'] as List<String>).map((answer) {
-                    return Answer(_answerQuestion, answer);
-                  }).toList()
-                ],
-              )
+        body: _questionIndex < _questions.length
+            ? Quiz(_answerQuestion,_questions)
             : Center(
                 child: Text("You did it!"),
               ),
