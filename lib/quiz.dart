@@ -3,11 +3,11 @@ import 'package:quizzapp/answer.dart';
 import 'package:quizzapp/question.dart';
 
 class Quiz extends StatelessWidget {
-  final List<Map<String,Object>> questions;
+  final List<Map<String, Object>> questions;
   final int questionIndex;
   final Function answerQuestion;
 
-  Quiz({this.questions,this.questionIndex,this.answerQuestion});
+  Quiz({@required this.questions, @required this.questionIndex, @required this.answerQuestion});
 
   @override
   Widget build(BuildContext context) {
