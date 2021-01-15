@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
+  final Function resetFunction;
 
-  Result(this.resultScore);
+  Result(this.resultScore,this.resetFunction);
 
   String get resultPhrase {
-    var resultText = 'You did it!';
+    String resultText;
     if (resultScore <= 5) {
       resultText = "Noob";
     } else if (resultScore <= 9) {
@@ -20,9 +22,15 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        resultPhrase,
-        style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+      child: Column(
+        children: [
+          Text(
+            resultPhrase,
+            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          FlatButton(onPressed: resetFunction, child: Text('Restart Quiz!'))
+        ],
       ),
     );
   }
