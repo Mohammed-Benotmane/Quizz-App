@@ -15,6 +15,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+
+  int _totalScore = 0;
   final _questions = const [
     {
       'questionText': "What\'s the color of the sun?",
@@ -27,15 +29,24 @@ class _MyAppState extends State<MyApp> {
     },
     {
       'questionText': "What\'s the currency of germany?",
-      'answers': [{'text': 'Dinars', 'score': 0}, {'text': 'Euros', 'score': 1}, {'text': 'Dollars', 'score': 0}],
+      'answers': [
+        {'text': 'Dinars', 'score': 0},
+        {'text': 'Euros', 'score': 1},
+        {'text': 'Dollars', 'score': 0}
+      ],
     },
     {
       'questionText': "Who\'s the richest man in the world?",
-      'answers': [{'text': 'Elon Musk', 'score': 1}, {'text': 'Cristiano Ronaldo', 'score':0}, {'text': 'Leonardo Dicaprio', 'score':0}],
+      'answers': [
+        {'text': 'Elon Musk', 'score': 1},
+        {'text': 'Cristiano Ronaldo', 'score': 0},
+        {'text': 'Leonardo Dicaprio', 'score': 0}
+      ],
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _totalScore += score;
     setState(() {
       _questionIndex++;
     });
@@ -53,7 +64,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: _questionIndex < _questions.length
             ? Quiz(answerQuestion: _answerQuestion, questionIndex: _questionIndex, questions: _questions)
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }
