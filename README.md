@@ -1,16 +1,33 @@
-# quizzapp
+# Quiz App
 
-A new Flutter application.
+![GitHub license](https://img.shields.io/github/license/Mohammed-Benotmane/Tower-Defense-Game.svg)
+![Jetlight studio](https://img.shields.io/badge/Made%20by-Jetlight%20studio-blue.svg?color=082544)
 
-## Getting Started
+## Description
+This is a simple quiz app I made with Flutter 2.0.
 
-This project is a starting point for a Flutter application.
+## ScreenShots:
+<img src="screenshots/home.jpg" width="200" /> <img src="screenshots/win.jpg" width="200" /> <img src="screenshots/lose.jpg" width="200" />
 
-A few resources to get you started if this is your first Flutter project:
+## Tools & languages:
+* Android studio (IDE)
+* Dart (logic)
+* Flutter 2.0 (Mobile UI developement kit)
+* Provider (State Management)
+* Admob
+* Paint.net (Image editor)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Contribution:
+Feel free to fork this project and add whatever you like. If you have any suggestions or any comments please feel free to contact me or to open an issue.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Team:
+[Jetlighters](https://github.com/JetLightStudio) having fun.
+
+## Documentation
+* [Install Flutter](https://flutter.dev/get-started/)
+* [Flutter documentation](https://flutter.dev/docs)
+
+For announcements about new releases and breaking changes, follow the
+[flutter-announce@googlegroups.com](https://groups.google.com/forum/#!forum/flutter-announce)
+mailing list.
+
