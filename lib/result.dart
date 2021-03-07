@@ -70,7 +70,10 @@ class Result extends StatelessWidget {
               ),
               child: Text(
                 resultPhrase,
-                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.white),
+                style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
                 textAlign: TextAlign.center,
               ),
               alignment: Alignment.center,
@@ -90,25 +93,32 @@ class Result extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: FlatButton(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25),
+            child: TextButton(
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.symmetric(vertical: 10)),
+                shape: MaterialStateProperty.all<OutlinedBorder>(
+                    RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                )),
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).accentColor),
               ),
               onPressed: resetFunction,
               child: Text(
                 'Restart Quiz!',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
-              textColor: Colors.white,
-              color: Theme.of(context).accentColor,
             ),
           ),
           SizedBox(height: 20),
           Spacer(),
           AdmobBanner(
             adUnitId: _getBannerAdUnitId(),
-            adSize: AdmobBannerSize(width: MediaQuery.of(context).size.width.toInt(), height: 50, name: "On sale"),
+            adSize: AdmobBannerSize(
+                width: MediaQuery.of(context).size.width.toInt(),
+                height: 50,
+                name: "On sale"),
           ),
         ],
       ),
